@@ -1,0 +1,84 @@
+/**
+ * We declare a package-level function main which returns Unit and takes
+ * an Array of strings as a parameter. Note that semicolons are optional.
+ */
+
+//properties
+class mobil(var merk:String ,var tipe:String){ // pemberian variable hanya belaku di primary costructor
+    
+    fun getmobil(merkparam:String){
+        println("Merk Mobil : $merkparam")
+        println("Tipe Mobil : $tipe")
+    }
+    fun getmobil(tahun:Int){
+        println("Merk Mobil : $merk")     //Overloading Function
+        println("Tipe Mobil : $tipe")     // dimana kita mmpunyai function yang sama dengn paramaeter berbeda
+        println ("Tahun Mobil : $tahun")  // baik jumlah parameter maupun tipe data parameter
+    }
+    
+    fun getmobil(merk:String, tipe:String , harga:Double){
+         println("Merk Mobil : $merk")     //Overloading Function
+        println("Tipe Mobil : $tipe") 
+        println ("Harga Mobil : $harga")
+    }
+}
+// function
+class nama{
+    var firstName:String =""
+    var middleName:String? = null
+    var lastName:String =""
+    
+    fun getNameFromClass(){
+        println("My name is $firstName $middleName $lastName")
+    }
+
+    fun getFullName(firstName:String){
+ println("Hello $firstName my name is ${this.firstName}")  // penggunaan keyword this 												untuk memangil parameter di object itu sendiri
+    }
+    fun getFullName(first:String ,middle:String , last:String):String{
+        return "nama saya adalah $first $middle $last"
+    }
+}
+class makanan (NamaMakanan:String ,JenisMakanan:String? ,JumlahKalori:Int){ //
+   //initilaizer property
+    init{
+        println("Ini Adalah init")
+        println ("Dengan init Program Dapat dieksekusi setelah class")
+    }
+    constructor(Makanan:String , Jenis:String?):this(Makanan , "Manis",400){ // mengambil berdasarkan primary consructor
+        println("Dibuat Dengan Constructor")
+        println ("Nama Makanan : $Makanan")
+        println ("Jenis Makanan : $Jenis")
+    }
+    
+    constructor(Jenismakanan :String) :this ("Ikan Bakar",Jenismakanan){ // mengambil nilai return berdasarkan constructor awal
+       println("Dibuat dengan Construcor 2")
+       println("Jenis Makanan :$Jenismakanan")
+    }
+    var nama = NamaMakanan
+    var Jenis = JenisMakanan
+    var Jumlahkalori = JumlahKalori
+    
+}
+fun main(args: Array<String>) {
+    val makanan1 = makanan("Ikan") // pemanggilan dengan constructor 2
+    val makanan2 = makanan ("Terang Bulan", "Manis") // pemangilan dengan constructor 1 
+    val makanan3 = makanan("Martabak","Makanan Asin",400)
+    println(makanan3.nama)
+    println(makanan3.Jenis)
+    println(makanan3.Jumlahkalori)
+    
+    val nama1 = nama()
+    nama1.firstName ="Hollay"
+    nama1.middleName =null
+    nama1.lastName ="Mahollay"
+    nama1.getNameFromClass()
+    val getnama =nama1.getFullName("Reyza","","Reyznata")
+    println(getnama)
+    
+    val Mobil =mobil("Toyota","Alphard")
+    Mobil.getmobil("Mitshubisi")
+    Mobil.getmobil(2009)
+    Mobil.getmobil("Toyota","Alphard",1459990.000)
+    
+}

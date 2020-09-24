@@ -3,7 +3,7 @@
  * an Array of strings as a parameter. Note that semicolons are optional.
  */
 
-//properties
+//properties dalam class 
 class mobil(var merk:String ,var tipe:String){ // pemberian variable hanya belaku di primary costructor
     
     fun getmobil(merkparam:String){
@@ -11,7 +11,7 @@ class mobil(var merk:String ,var tipe:String){ // pemberian variable hanya belak
         println("Tipe Mobil : $tipe")
     }
     fun getmobil(tahun:Int){
-        println("Merk Mobil : $merk")     //Overloading Function
+        println("Merk Mobil : $merk")      //Overloading Function
         println("Tipe Mobil : $tipe")     // dimana kita mmpunyai function yang sama dengn paramaeter berbeda
         println ("Tahun Mobil : $tahun")  // baik jumlah parameter maupun tipe data parameter
     }
@@ -22,7 +22,7 @@ class mobil(var merk:String ,var tipe:String){ // pemberian variable hanya belak
         println ("Harga Mobil : $harga")
     }
 }
-// function
+// function dalam class 
 class nama{
     var firstName:String =""
     var middleName:String? = null
@@ -33,14 +33,14 @@ class nama{
     }
 
     fun getFullName(firstName:String){
- println("Hello $firstName my name is ${this.firstName}")  // penggunaan keyword this 												untuk memangil parameter di object itu sendiri
+ println("Hello $firstName my name is ${this.firstName}")  // penggunaan keyword this  untuk memangil value pada parameter object												untuk memangil parameter di object itu sendiri
     }
     fun getFullName(first:String ,middle:String , last:String):String{
         return "nama saya adalah $first $middle $last"
     }
 }
 class makanan (NamaMakanan:String ,JenisMakanan:String? ,JumlahKalori:Int){ //
-   //initilaizer property
+   //initilaizer property yang mana init ini akan selalu dieksekusi saat class dipanggil 
     init{
         println("Ini Adalah init")
         println ("Dengan init Program Dapat dieksekusi setelah class")
@@ -61,16 +61,17 @@ class makanan (NamaMakanan:String ,JenisMakanan:String? ,JumlahKalori:Int){ //
     
 }
 fun main(args: Array<String>) {
+//pemangilan class 
     val makanan1 = makanan("Ikan") // pemanggilan dengan constructor 2
     val makanan2 = makanan ("Terang Bulan", "Manis") // pemangilan dengan constructor 1 
-    val makanan3 = makanan("Martabak","Makanan Asin",400)
+    val makanan3 = makanan("Martabak","Makanan Asin",400) //pemangilan degan Primary Constructor
     println(makanan3.nama)
     println(makanan3.Jenis)
     println(makanan3.Jumlahkalori)
     
     val nama1 = nama()
-    nama1.firstName ="Hollay"
-    nama1.middleName =null
+    nama1.firstName ="Hollay" //set Nama Vaiable
+    nama1.middleName =null //bisa berupa null karena Tipe Datanya :String?
     nama1.lastName ="Mahollay"
     nama1.getNameFromClass()
     val getnama =nama1.getFullName("Reyza","","Reyznata")
